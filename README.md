@@ -1,18 +1,16 @@
-# ShowCue v5 — Universal Audio / Cut Track / Level Matching
+# OAM Studio v7 — Responsive PWA / Branding Fix
 
-Built from the locked ShowCue v4 baseline.
+This build fixes the OAM logo/PWA icon problem by:
+- embedding the primary OAM logo directly into the HTML so GitHub asset-path failures cannot remove it from the UI;
+- supplying dedicated 64/152/167/180/192/512/1024 PNG icons;
+- using explicit iOS Apple touch icons and Android/desktop PWA manifest icons;
+- keeping the responsive UI usable in portrait and landscape;
+- bumping the service-worker cache to v7.
 
-Changes in this version:
-- Same responsive visual system across phone, iPad/tablet and PC, including landscape handling for older iPads.
-- Songs accepts MP3, AIFF, FLAC, M4A, WAV and WMA by extension.
-- Media accepts MP4, M4V, MOV and AVI by extension.
-- Audio and video are stored locally in IndexedDB.
-- Cue Pads preload assigned files to reduce iOS user-activation/autoplay problems.
-- Pad launch cues and starts the assigned audio.
-- Level Matching Sync raises softer analysed tracks toward the loudest analysed track at playback only; original files are never changed and louder tracks are not turned down.
-- Cut Track detects leading silence/noise and starts up to four bars before the first detected audio. BPM is editable per song.
-- Level matching and Cut Track analysis is performed only when enabled.
-- The original v4 files remain the recovery baseline.
+## GitHub Pages
+Upload the CONTENTS of this folder to the repository root. Replace the old version completely.
 
-Browser codec limitation:
-Importing a file and playing it are separate capabilities. Older iPad Air/Safari versions cannot natively decode every container/codec, especially WMA and AVI. ShowCue therefore imports and stores all requested extensions, while playback depends on the device/browser's native codec support. For the widest compatibility on iPad Air 1, use MP3/WAV/AIFF/common M4A audio and MP4/M4V/MOV video.
+After deployment on iPhone, delete the old OAM Studio Home Screen icon and add it again from Safari. iOS caches PWA icons aggressively, so reinstalling is necessary to see the new icon.
+
+## Important
+Use HTTPS GitHub Pages. The service worker requires HTTPS (except localhost).
